@@ -1,2 +1,2 @@
 # springboot
-spring boot app with gradle
+A spring boot app that exposes REST apis and built with gradle.
