@@ -25,6 +25,7 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:20.0'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
 
     // Use the latest Groovy version for Spock testing
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
@@ -35,5 +36,5 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'com.rilussion.alpha.Application'
 
