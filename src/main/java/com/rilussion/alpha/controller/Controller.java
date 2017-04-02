@@ -1,4 +1,4 @@
-package controller;
+package com.rilussion.alpha.controller;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
