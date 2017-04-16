@@ -14,10 +14,10 @@ node {
         sh 'gradle sonarqube'
     }
     stage ('dockerize') {
-        step {
+        steps {
             sh './gradlew composeDown'
         }
-        step {
+        steps {
             sh './gradlew composeUp'
         }
     }
