@@ -10,6 +10,8 @@
 // sonarqube plugin
 plugins {
     id "org.sonarqube" version "2.3"
+    id "com.avast.gradle.docker-compose" version "0.3.22"
+    id "org.springframework.boot" version "1.5.2.RELEASE"
 }
 
 // Apply the java plugin to add support for Java
@@ -20,6 +22,11 @@ apply plugin: 'application'
 
 // Apply the groovy plugin to also add support for Groovy (needed for Spock)
 apply plugin: 'groovy'
+
+// For Code Coverage
+apply plugin: "jacoco"
+
+
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -41,5 +48,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// Define the main class for the application
-mainClassName = 'com.rilussion.alpha.Application'
+
+jar {
+    baseName = 'springboot'
+    version =  '0.1.0'
+}

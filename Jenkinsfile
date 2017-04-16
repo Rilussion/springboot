@@ -1,22 +1,19 @@
 #!groovy
 
 node {
-   stage('Preparation') { 
+   stage('Checkout') {
+       deleteDir()
      checkout scm
    }
-   stage('build'){
-       def g = tool 'GRADL'
-       env.PATH = "${g}/bin:${env.path}"
-       sh 'gradle build -x test'
+   stage ('build') {
+       sh './gradlew build -x test'
    }
-   stage('unit test') {
-       def g = tool 'GRADL'
-       env.PATH = "${g}/bin:${env.path}"
-       sh 'gradle test'
-   }
-   stage ('code analysis') {
-       def g = tool 'GRADL'
-       env.PATH = "${g}/bin:${env.path}"
-       sh 'gradle sonarqube'
-   }
+    stage ('code analysis incl test, coco') {
+        def g = tool 'GRADL'
+        env.PATH = "${g}/bin:${env.path}"
+        sh 'gradle sonarqube'
+    }
+    stage ('dockerize') {
+        sh './gradlew composeUp'
+    }
 }
