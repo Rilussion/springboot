@@ -13,12 +13,12 @@ node {
         env.PATH = "${g}/bin:${env.path}"
         sh 'gradle sonarqube'
     }
-    stage ('dockerize') {
-        steps {
+    stage ('dockerize-remove') {
+
             sh './gradlew composeDown'
-        }
-        steps {
+    }
+    stage ('dockerize') {
+
             sh './gradlew composeUp'
-        }
     }
 }
