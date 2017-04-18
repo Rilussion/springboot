@@ -6,8 +6,7 @@
  * user guide available at https://docs.gradle.org/3.4.1/userguide/tutorial_java_projects.html
  */
 
-// trigger build commit sample test
-// sonarqube plugin
+
 plugins {
     id "org.sonarqube" version "2.3"
     id "com.avast.gradle.docker-compose" version "0.3.22"
@@ -52,4 +51,8 @@ dependencies {
 jar {
     baseName = 'springboot'
     version =  '0.1.0'
+}
+
+dockerCompose {
+    removeImages = 'All'
 }
