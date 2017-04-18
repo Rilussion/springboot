@@ -6,3 +6,11 @@ services:
     image: springapp:1.1
     ports:
      - "8082:8082"
+    depends_on:
+     - appMock
+  appMock:
+    build:
+      context: ./appMock
+    image: appmock:1.1
+    ports:
+     - "8092:8092"
