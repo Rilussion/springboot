@@ -8,6 +8,8 @@ services:
      - "8082:8082"
     depends_on:
      - appMock
+    links:
+     - appMock
   appMock:
     build:
       context: ./appMock
