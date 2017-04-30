@@ -5,7 +5,7 @@
   },
   "response": {
     "status": 200,
-    "body": {
+    "jsonBody": {
       "coord": {
         "lon": -93.26,
         "lat": 44.98
