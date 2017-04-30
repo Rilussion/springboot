@@ -38,6 +38,9 @@ dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:20.0'
     compile 'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
+    compile group: 'xalan', name: 'xalan', version: '2.7.1'
+
+    compile group: 'org.codehaus.groovy', name: 'groovy-json', version: '2.4.10'
 
     // Use the latest Groovy version for Spock testing
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
@@ -45,6 +48,7 @@ dependencies {
     // Use the awesome Spock testing and specification framework even with Java
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'junit:junit:4.12'
+    testCompile "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
 }
 
 
@@ -56,3 +60,5 @@ jar {
 dockerCompose {
     removeImages = 'All'
 }
+
+mainClassName = "com.rilussion.alpha.Application"

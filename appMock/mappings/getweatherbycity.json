@@ -1,0 +1,51 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/data/2.5/weather?q=Minneapolis"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "coord": {
+        "lon": -93.26,
+        "lat": 44.98
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 280.65,
+        "pressure": 1015,
+        "humidity": 56,
+        "temp_min": 280.15,
+        "temp_max": 281.15
+      },
+      "visibility": 16093,
+      "wind": {
+        "speed": 3.1,
+        "deg": 290
+      },
+      "clouds": {
+        "all": 40
+      },
+      "dt": 1493403360,
+      "sys": {
+        "type": 1,
+        "id": 1492,
+        "message": 0.4322,
+        "country": "US",
+        "sunrise": 1493377518,
+        "sunset": 1493428574
+      },
+      "id": 5037649,
+      "name": "Minneapolis",
+      "cod": 200
+    }
+  }
+}

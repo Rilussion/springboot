@@ -1,0 +1,54 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "GET",
+    "urlPattern": "/data/2.5/weather\\?.*"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 5000,
+    "jsonBody": {
+      "coord": {
+        "lon": -93.26,
+        "lat": 44.98
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "clear sky",
+          "icon": "01d"
+        }
+      ],
+      "base": "stations",
+      "main": {
+        "temp": 285.01,
+        "pressure": 1026,
+        "humidity": 32,
+        "temp_min": 284.15,
+        "temp_max": 286.15
+      },
+      "visibility": 16093,
+      "wind": {
+        "speed": 4.6,
+        "deg": 40,
+        "gust": 7.7
+      },
+      "clouds": {
+        "all": 1
+      },
+      "dt": 1493493300,
+      "sys": {
+        "type": 1,
+        "id": 1492,
+        "message": 0.0052,
+        "country": "US",
+        "sunrise": 1493463824,
+        "sunset": 1493515051
+      },
+      "id": 5037649,
+      "name": "Minneapolis",
+      "cod": 200
+    }
+  }
+}

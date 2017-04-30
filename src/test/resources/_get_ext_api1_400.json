@@ -1,0 +1,13 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "GET",
+    "urlPattern": "/data/2.5/weather\\?.*"
+  },
+  "response": {
+    "status": 400,
+    "jsonBody": {
+      "errorDesc": "Invalid city name or code"
+    }
+  }
+}
