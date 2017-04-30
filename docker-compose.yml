@@ -9,7 +9,7 @@ services:
     depends_on:
      - appMock
     links:
-     - appMock
+     - appMock:mockhost
   appMock:
     build:
       context: ./appMock
