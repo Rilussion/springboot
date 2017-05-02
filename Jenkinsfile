@@ -22,6 +22,7 @@ node {
         def g = tool 'GRADL'
         env.PATH = "${g}/bin:${env.path}"
         sh 'gradle sonarqube -x test'
+        sh './gradlew --stop'
     }
 
     stage('dockerize-remove') {
