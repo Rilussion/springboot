@@ -8,15 +8,15 @@ node {
     }
 
     stage('build') {
-        sh './gradlew build -x test'
+        sh './gradlew clean build -x test'
     }
 
     stage('Unit tests') {
-        sh './gradlew test --tests *AppTest.1*'
+        sh './gradlew test --tests *AppTest.1* --debug'
     }
 
     stage('More Unit tests') {
-        sh './gradlew test --tests *AppTest.2*'
+        sh './gradlew test --tests *AppTest.2* --debug'
     }
 
     /*parallel 'Unit tests': {
@@ -29,21 +29,21 @@ node {
     stage('Code analysis and coco') {
         def g = tool 'GRADL'
         env.PATH = "${g}/bin:${env.path}"
-        sh 'gradle sonarqube -x test'
+        sh './gradlew sonarqube -x test'
     }
 
     stage('dockerize-remove') {
 
-        sh './gradlew composeDown'
+        sh './gradlew composeDown --debug'
     }
 
     stage('dockerize & compose app server and mock server ') {
 
-        sh './gradlew composeUp'
+        sh './gradlew composeUp --debug'
     }
 
     stage('Integration Test') {
 
-        sh './gradlew -Dtest.single=AppIntegrationTest test'
+        sh './gradlew -Dtest.single=AppIntegrationTest test --debug'
     }
 }
