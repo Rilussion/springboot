@@ -12,10 +12,10 @@ node {
     }
 
     parallel 'Unit tests': {
-        sh './gradle test --tests *AppTest.1*'
+        sh './gradlew test --tests *AppTest.1*'
     },
             'More Unit tests': {
-                sh './gradle test --tests *AppTest.2*'
+                sh './gradlew test --tests *AppTest.2*'
             }
 
     stage('Code analysis and coco') {
