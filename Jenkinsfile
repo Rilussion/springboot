@@ -18,11 +18,9 @@ node {
                         sh './gradlew -Dtest.single=AppTest test'
                     },
                     'Code analysis and coco': {
-                        stage('code analysis and coco') {
-                            def g = tool 'GRADL'
-                            env.PATH = "${g}/bin:${env.path}"
-                            sh 'gradle sonarqube -x test'
-                        }
+                        def g = tool 'GRADL'
+                        env.PATH = "${g}/bin:${env.path}"
+                        sh 'gradle sonarqube -x test'
                     }
             )
         }
