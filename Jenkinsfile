@@ -1,6 +1,7 @@
 #!groovy
 
 node {
+
     stage('Checkout') {
         deleteDir()
         checkout scm
@@ -10,10 +11,12 @@ node {
         sh './gradlew build -x test'
     }
 
-    parallel quality:{
+    parallel x: {
         stage('Unit tests') {
             sh './gradlew -Dtest.single=AppTest test'
         }
+    },
+   y: {
         stage('code analysis and coco') {
             def g = tool 'GRADL'
             env.PATH = "${g}/bin:${env.path}"
@@ -30,7 +33,7 @@ node {
 
         sh './gradlew composeUp'
     }
-    
+
     stage('Integration Test') {
 
         sh './gradlew -Dtest.single=AppIntegrationTest test'
