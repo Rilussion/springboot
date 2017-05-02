@@ -9,6 +9,8 @@ class AppTest extends Specification {
     def "1_application has a greeting"() {
         setup:
         def app = new Application()
+        and:
+            Thread.sleep 5100
 
         when:
         def result = app
@@ -21,7 +23,7 @@ class AppTest extends Specification {
         setup:
         def app = new Application()
         and:
-            Thread.sleep 3100
+            Thread.sleep 6100
 
         when:
         def result = app
@@ -34,7 +36,7 @@ class AppTest extends Specification {
         setup:
         def app = new Application()
         and:
-        Thread.sleep 4100
+        Thread.sleep 7100
 
         when:
         def result = app
