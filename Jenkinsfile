@@ -11,16 +11,20 @@ node {
         sh './gradlew build -x test'
     }
 
-    parallel x: {
-        stage('Unit tests') {
-            sh './gradlew -Dtest.single=AppTest test'
-        }
-    },
-   y: {
-        stage('code analysis and coco') {
-            def g = tool 'GRADL'
-            env.PATH = "${g}/bin:${env.path}"
-            sh 'gradle sonarqube -x test'
+    stage('Static tests') {
+        steps {
+            parallel(
+                    'Unit tests': {
+                        sh './gradlew -Dtest.single=AppTest test'
+                    },
+                    'Code analysis and coco': {
+                        stage('code analysis and coco') {
+                            def g = tool 'GRADL'
+                            env.PATH = "${g}/bin:${env.path}"
+                            sh 'gradle sonarqube -x test'
+                        }
+                    }
+            )
         }
     }
 

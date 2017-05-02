@@ -6,7 +6,7 @@ import com.rilussion.alpha.Application
 import spock.lang.Specification
 
 class AppTest extends Specification {
-    def "application has a greeting"() {
+    def "1_application has a greeting"() {
         setup:
         def app = new Application()
 
@@ -17,7 +17,7 @@ class AppTest extends Specification {
         result != null
     }
 
-    def "application has a greeting1"() {
+    def "1_application has a greeting1"() {
         setup:
         def app = new Application()
         and:
@@ -30,7 +30,7 @@ class AppTest extends Specification {
         result != null
     }
 
-    def "application has a greeting2"() {
+    def "1_application has a greeting2"() {
         setup:
         def app = new Application()
         and:
@@ -43,7 +43,7 @@ class AppTest extends Specification {
         result != null
     }
 
-    def "application has a greeting3"() {
+    def "2_application has a greeting3"() {
         setup:
         def app = new Application()
         and:
@@ -56,7 +56,7 @@ class AppTest extends Specification {
         result != null
     }
 
-    def "application has a greeting4"() {
+    def "2_application has a greeting4"() {
         setup:
         def app = new Application()
         and:
@@ -69,7 +69,7 @@ class AppTest extends Specification {
         result != null
     }
 
-    def "application has a greeting5"() {
+    def "2_application has a greeting5"() {
         setup:
         def app = new Application()
         and:
