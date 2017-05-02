@@ -11,19 +11,17 @@ node {
         sh './gradlew build -x test'
     }
 
-    stage('Static tests') {
+    parallel(
+            'Unit tests': {
+                sh './gradlew -Dtest.single=AppTest test'
+            },
 
-            parallel(
-                    stage('Unit tests'){
-                        sh './gradlew -Dtest.single=AppTest test'
-                    },
-                    stage('Code analysis and coco'){
-                        def g = tool 'GRADL'
-                        env.PATH = "${g}/bin:${env.path}"
-                        sh 'gradle sonarqube -x test'
-                    }
-            )
-    }
+            'Code analysis and coco': {
+                def g = tool 'GRADL'
+                env.PATH = "${g}/bin:${env.path}"
+                sh 'gradle sonarqube -x test'
+            }
+    )
 
     stage('dockerize-remove') {
 
