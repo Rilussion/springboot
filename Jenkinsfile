@@ -41,12 +41,12 @@ node('master') {
 
     stage('dockerize-remove') {
 
-        sh './gradlew composeDown --debug'
+        sh './gradlew composeDown -S'
     }
 
     stage('dockerize & compose app server and mock server ') {
 
-        sh './gradlew composeUp --debug'
+        sh './gradlew composeUp -S'
     }
 
     stage('Integration Test') {
