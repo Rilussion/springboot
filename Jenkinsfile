@@ -1,6 +1,6 @@
 #!groovy
 
-node('master') {
+node {
 
     stage('Checkout') {
         deleteDir()
@@ -34,8 +34,8 @@ node('master') {
     }*/
 
     stage('Code analysis and coco') {
-        def g = tool 'GRADL'
-        env.PATH = "${g}/bin:${env.path}"
+        /*def g = tool 'GRADL'
+        env.PATH = "${g}/bin:${env.path}"*/
         sh './gradlew sonarqube -x test'
     }
 
