@@ -11,15 +11,15 @@ node('master') {
         sh './gradlew clean build -x test'
     }
 
-    /* stage('Unit tests') {
-         sh './gradlew test --tests *AppTest.1* --debug'
-     }*/
+    stage('Unit tests') {
+        sh './gradlew test --tests *AppTest.1* --debug'
+    }
 
-    /*  stage('More Unit tests') {
-          sh './gradlew test --tests *AppTest.2* --debug'
-      }*/
+    stage('More Unit tests') {
+        sh './gradlew test --tests *AppTest.2* --debug'
+    }
 
-    stage('Tests') {
+    /*stage('Tests') {
         parallel 'Unit tests': {
             node('master') {
 
@@ -31,7 +31,7 @@ node('master') {
                         sh './gradlew test --tests *AppTest.2*'
                     }
                 }
-    }
+    }*/
 
     stage('Code analysis and coco') {
         def g = tool 'GRADL'
