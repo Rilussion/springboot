@@ -1,6 +1,6 @@
 #!groovy
 
-node {
+node ('master') {
 
     stage('Checkout') {
         deleteDir()
