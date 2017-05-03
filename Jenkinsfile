@@ -1,6 +1,6 @@
 #!groovy
 
-node {
+node('master') {
 
     stage('Checkout') {
         deleteDir()
@@ -11,20 +11,27 @@ node {
         sh './gradlew clean build -x test'
     }
 
-    stage('Unit tests') {
-        sh './gradlew test --tests *AppTest.1* --debug'
-    }
+    /* stage('Unit tests') {
+         sh './gradlew test --tests *AppTest.1* --debug'
+     }*/
 
-    stage('More Unit tests') {
-        sh './gradlew test --tests *AppTest.2* --debug'
-    }
+    /*  stage('More Unit tests') {
+          sh './gradlew test --tests *AppTest.2* --debug'
+      }*/
 
-    /*parallel 'Unit tests': {
-        sh './gradlew test --tests *AppTest.1*'
-    },
-            'More Unit tests': {
-                sh './gradlew test --tests *AppTest.2*'
-            }*/
+    stage('Tests') {
+        parallel 'Unit tests': {
+            node('master') {
+
+                sh './gradlew test --tests *AppTest.1*'
+            }
+        },
+                'More Unit tests': {
+                    node('remote') {
+                        sh './gradlew test --tests *AppTest.2*'
+                    }
+                }
+    }
 
     stage('Code analysis and coco') {
         def g = tool 'GRADL'
