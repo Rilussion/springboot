@@ -53,6 +53,7 @@ public class AppServiceImpl {
                 String.format("The temperature in %s is %.2f F. Daylight duration: %.2f hours", city, (temp * 9 / 5) - 459.67, dayTime));
 
         // Some feature- feature1
+        // Second commit in feature 1
 
     }
 }
